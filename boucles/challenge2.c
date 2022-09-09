@@ -22,6 +22,7 @@ int main() {
       break;
     default:
       printf("'%c' n'est pas une voyelle\n", c);
+      break;
   }
   return 0;
 }
