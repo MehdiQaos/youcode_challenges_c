@@ -19,6 +19,8 @@ float devidedBy(int a, int b) {
 
 bool isPrime(int n) {
     float d, r;
+    if(n <= 1)
+        return false;
     for(int i=2; i<n/2; ++i)
         if(devidedBy(n, i) == n / i) //on test si les resultat de devideBy est nombre entier ou decimal, 
         //si decimal sa implique que i ne devise pas n
