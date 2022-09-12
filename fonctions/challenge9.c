@@ -7,11 +7,11 @@ bool isPremier(int n);
 
 //test de la fonction
 int main() {
-    int a = 15, b = 23;
-    bool resultat = isPremier(a);
-    printf("%d est un nombre premier: %s\n", a, resultat == true ? "vrai" : "faux");
-    resultat = isPremier(b);
-    printf("%d est un nombre premier: %s\n", b, resultat == true ? "vrai" : "faux");
+    int n;
+    printf("Entrer un nombre entier: ");
+    scanf("%d", &n);
+    bool resultat = isPremier(n);
+    printf("%d est un nombre premier: %s\n", n, resultat == true ? "vrai" : "faux");
     return 0;
 }
 
