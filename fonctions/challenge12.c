@@ -11,9 +11,6 @@ int main() {
 }
 
 void copy(char *source, char *target) {
-    char *p, *q;
-    for(p=source, q=target; *p != '\0'; p++, q++) {
-        *q = *p;
-    }
-    *q = '\0';
+    char *p = source, *q = target;
+    while(*q++ = *p++);
 }
