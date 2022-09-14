@@ -5,6 +5,7 @@
 #include <unistd.h> // #include <windows.h> ? for sleep function
 
 #define STRING_LENGTH 100
+#define SLEEP_TIME 3 // 3000 for windows?
 
 // structures section
 typedef struct {
@@ -30,8 +31,12 @@ void printIntro() {
 }
 
 void printCountDown() {
-    char s[] = "Coureurs prets ! Dans...\n5\n4\n3\n2\n1\nCourse !";
-    printf("%s\n\n", s);
+    printf("Coureurs prets ! Dans...\n");
+    for(int i=5; i>0; --i) {
+        printf("%d\n", i);
+        sleep(1);
+    }
+    printf("Course !\n\n");
 }
 
 void printFirstPlaceAfterLap(Race *race) {
@@ -42,7 +47,7 @@ void printFirstPlaceAfterLap(Race *race) {
 
 void printCongratulation(Race *race) {
     printf("\nFélicitons tous %s, dans la voiture de course %s, pour son incroyable "
-            "performance.C'était vraiment une belle course et bonne nuit "
+            "performance.\nC'était vraiment une belle course et bonne nuit "
             "à tous !\n\n", race->firstPlaceDriverName, race->firstPlaceRaceCarColor);
 }
 
@@ -73,17 +78,16 @@ void updateFirstPlace(Race *race, RaceCar *raceCar1, RaceCar *raceCar2) {
 void startRace(RaceCar *raceCar1, RaceCar *raceCar2) {
     Race race;
     race.numberOfLaps = 5;
-    race.currentLap = 1;
+    race.currentLap = 0;
     strcpy(race.firstPlaceDriverName, "");
     strcpy(race.firstPlaceRaceCarColor, "");
 
     while(race.currentLap < race.numberOfLaps) {
+        sleep(SLEEP_TIME); // pour un peu d'ambiance
         updateRaceCar(raceCar1);
         updateRaceCar(raceCar2);
         updateFirstPlace(&race, raceCar1, raceCar2);
         printFirstPlaceAfterLap(&race);
-        sleep(3); // pour un peu d'ambiance
-        //sleep(1000); in windows ? not tested yet
     }
     printCongratulation(&race);
 }
@@ -92,8 +96,8 @@ void startRace(RaceCar *raceCar1, RaceCar *raceCar2) {
 int main() {
     time_t t;
     srand((unsigned) time(&t));
-    char driver1[STRING_LENGTH], driver2[STRING_LENGTH];
-    char couleur1[STRING_LENGTH], couleur2[STRING_LENGTH];
+    char driver1[STRING_LENGTH] = "Mehdi", driver2[STRING_LENGTH] = "Youssef";
+    char couleur1[STRING_LENGTH] = "rouge", couleur2[STRING_LENGTH] = "jaune";
 
     // saisie des noms des pilotes et les couleurs de ses voitures
     printf("Entrer le nom du premier pilote: ");
