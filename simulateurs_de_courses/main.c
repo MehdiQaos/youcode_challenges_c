@@ -24,10 +24,9 @@ typedef struct {
 
 // print function section
 void printIntro() {
-    char s[] = "Bienvenue à notre événement principal, les fans de course "
-            "numérique !J'espère que tout le monde a pris son goûter car "
-            "nous allons commencer !";
-    printf("\n%s\n\n", s);
+    printf("\nBienvenue a notre evenement principal, les fans de course "
+            "numerique !J'espere que tout le monde a pris son gouter\n"
+            "car nous allons commencer !\n\n");
 }
 
 void printCountDown() {
@@ -40,15 +39,15 @@ void printCountDown() {
 }
 
 void printFirstPlaceAfterLap(Race *race) {
-    printf("Après le tour numéro %d La première place est occupée par : %s "
+    printf("Apres le tour numero %d La premiere place est occupee par : %s "
             "dans la voiture de course %s !\n", race->currentLap,
             race->firstPlaceDriverName, race->firstPlaceRaceCarColor);
 }
 
 void printCongratulation(Race *race) {
-    printf("\nFélicitons tous %s, dans la voiture de course %s, pour son incroyable "
-            "performance.\nC'était vraiment une belle course et bonne nuit "
-            "à tous !\n\n", race->firstPlaceDriverName, race->firstPlaceRaceCarColor);
+    printf("\nFelicitons tous %s, dans la voiture de course %s, pour son incroyable "
+            "performance.\nC'etait vraiment une belle course et bonne nuit "
+            "a tous !\n\n", race->firstPlaceDriverName, race->firstPlaceRaceCarColor);
 }
 
 
@@ -96,7 +95,8 @@ void startRace(RaceCar *raceCar1, RaceCar *raceCar2) {
 int main() {
     time_t t;
     srand((unsigned) time(&t));
-    char driver1[STRING_LENGTH] = "Mehdi", driver2[STRING_LENGTH] = "Youssef";
+
+    char driver1[STRING_LENGTH] = "Mehdi", driver2[STRING_LENGTH] = "Adil";
     char couleur1[STRING_LENGTH] = "rouge", couleur2[STRING_LENGTH] = "jaune";
 
     // saisie des noms des pilotes et les couleurs de ses voitures
